@@ -1,6 +1,6 @@
 import Cocoa
 
-final class SettingsTabViewController: NSViewController, SettingsStyleControllerDelegate {
+public final class SettingsTabViewController: NSViewController, SettingsStyleControllerDelegate {
 	private var activeTab: Int?
 	private var panes = [SettingsPane]()
 	private var style: Settings.Style?
@@ -24,7 +24,7 @@ final class SettingsTabViewController: NSViewController, SettingsStyleController
 		return panes[activeTab]
 	}
 
-	override func loadView() {
+    public override func loadView() {
 		view = NSView()
 		view.translatesAutoresizingMaskIntoConstraints = false
 	}
@@ -148,7 +148,7 @@ final class SettingsTabViewController: NSViewController, SettingsStyleController
 		}
 	}
 
-	override func transition(
+    public override func transition(
 		from fromViewController: NSViewController,
 		to toViewController: NSViewController,
 		options: NSViewController.TransitionOptions = [],
@@ -212,15 +212,15 @@ final class SettingsTabViewController: NSViewController, SettingsStyleController
 }
 
 extension SettingsTabViewController: NSToolbarDelegate {
-	func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+    public func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
 		toolbarItemIdentifiers
 	}
 
-	func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+    public func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
 		toolbarItemIdentifiers
 	}
 
-	func toolbarSelectableItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+    public func toolbarSelectableItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
 		style == .segmentedControl ? [] : toolbarItemIdentifiers
 	}
 

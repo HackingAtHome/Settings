@@ -5,7 +5,7 @@ extension NSWindow.FrameAutosaveName {
 }
 
 public final class SettingsWindowController: NSWindowController {
-	private let tabViewController = SettingsTabViewController()
+	public let tabViewController = SettingsTabViewController()
 
 	public var isAnimated: Bool {
 		get { tabViewController.isAnimated }
